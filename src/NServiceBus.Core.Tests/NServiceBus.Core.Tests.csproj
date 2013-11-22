@@ -189,6 +189,8 @@
     <Compile Include="Outbox\IOutboxStorage.cs" />
     <Compile Include="Outbox\OutboxMessage.cs" />
     <Compile Include="Outbox\OutboxReceiveBehaviour.cs" />
+    <Compile Include="Outbox\OutboxReceiveBehaviourTests.cs" />
+    <Compile Include="Outbox\OutboxSendBehavior.cs" />
     <Compile Include="Outbox\TransportOperation.cs" />
     <Compile Include="Persistence\RavenDB\SagaPersister\EqualityExtensions.cs" />
     <Compile Include="Persistence\RavenDB\SagaPersister\Persisting_a_saga_entity_with_a_raven_saga_persister.cs" />
@@ -223,7 +225,7 @@
     <Compile Include="Persistence\RavenDB\When_configuring_persistence_to_use_a_raven_server_instance_with_the_default_settings.cs" />
     <Compile Include="Persistence\RavenDB\WithRavenDbServer.cs" />
     <Compile Include="Persistence\RavenDB\With_using_raven_persistence.cs" />
-    <Compile Include="Outbox\OutboxReceiveBehaviourTests.cs" />
+    <Compile Include="Outbox\OutboxSendBehaviourTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routing\StaticMessageRouterTests.cs" />
     <Compile Include="Sagas\UniqueAttributeTests.cs" />
