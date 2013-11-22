@@ -4,9 +4,11 @@
     using System.Collections.Generic;
     using Audit;
     using Contexts;
+    using Features;
     using MessageMutator;
     using NServiceBus.MessageMutator;
     using ObjectBuilder;
+    using Outbox;
     using Sagas;
     using Unicast;
     using Unicast.Behaviors;
@@ -34,7 +36,12 @@
             {
                 pipeline.Add<ImpersonateSenderBehavior>();
             }
-
+            
+            if (Feature.IsEnabled<Outbox>())
+            {
+                pipeline.Add<OutboxReceiveBehavior>();
+            }
+           
             pipeline.Add<AuditBehavior>();
             pipeline.Add<ForwardBehavior>();
             pipeline.Add<UnitOfWorkBehavior>();
@@ -139,6 +146,12 @@
 
             pipeline.Add<SerializeMessagesBehavior>();
             pipeline.Add<MutateOutgoingPhysicalMessageBehavior>();
+          
+            if (Feature.IsEnabled<Outbox>())
+            {
+                pipeline.Add<OutboxSendBehavior>();     
+            }
+           
             pipeline.Add<DispatchMessageToTransportBehavior>();
 
 
