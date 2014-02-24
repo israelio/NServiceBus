@@ -35,5 +35,3 @@ csx
 _NCrunch_NServiceBus/*
 logs
 run-git.cmd
-
-*.jtconfig
